@@ -1,0 +1,44 @@
+.github_link {
+  .github-corner {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 0px;
+
+    svg {
+      fill: var(--primary);
+      color: rgb(246, 248, 250);
+
+      .octo-arm {
+        transform-origin: 130px 106px;
+      }
+    }
+
+    &:hover {
+      svg {
+        .octo-arm {
+          animation: 560ms ease-in-out 0s 1 normal none running octocat-wave;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes octocat-wave {
+
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}

@@ -1,0 +1,45 @@
+<div class="container">
+  <h2 class="title">Password Generator</h2>
+
+  <div class="result {{nvClass}}" (click)="copyToClipboard('')">
+    <div class="result__title field-title">Generated Password</div>
+    <div class="result__info right" #clickToCopy>click to copy</div>
+    <div class="result__info left" #copiado>copied</div>
+    <div class="result__viewbox" id="result" *ngIf="password_generada.length == 0; else elses">CLICK GENERATE</div>
+
+    <ng-template #elses>
+      <div class="result__viewbox" id="result">{{password_generada}}</div>
+    </ng-template>
+
+    <button id="copy-btn" style="--x: 0; --y: 0"><i class="far fa-copy"></i></button>
+  </div>
+  <div class="length range__slider" data-min="4" data-max="40">
+    <div class="length__title field-title"><span>length:</span>
+      <p>{{slider.value}}</p>
+    </div>
+    <input id="slider" type="range" min="4" max="40" value="16" (input)="slider.value" (change)="value(slider.value)"
+      #slider />
+  </div>
+
+  <div class="settings">
+    <span class="settings__title field-title">settings</span>
+    <div class="setting">
+      <input type="checkbox" id="uppercase" checked (change)="optionsGenerate('mayusculas')" />
+      <label for="uppercase">Include Uppercase</label>
+    </div>
+    <div class="setting">
+      <input type="checkbox" id="lowercase" checked (change)="optionsGenerate('minusculas')" />
+      <label for="lowercase">Include Lowercase</label>
+    </div>
+    <div class="setting">
+      <input type="checkbox" id="number" checked (change)="optionsGenerate('numeros')" />
+      <label for="number">Include Numbers</label>
+    </div>
+    <div class="setting">
+      <input type="checkbox" id="symbol" (change)="optionsGenerate('simbolos')" />
+      <label for="symbol">Include Symbols</label>
+    </div>
+  </div>
+
+  <button class="btn generate" id="generate" (click)="generatePassword()">Generate Password</button>
+</div>
